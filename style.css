@@ -75,3 +75,41 @@ body {
     border-radius: 0;
   }
 }
+<<<<<<< HEAD
+.aba-conteudo-titulo-principal {
+  font-size: 28px;
+  text-align: center;
+}
+.aba-conteudo-titulo-secundario {
+  text-align: center;
+  color: var(--botao-ativo);
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 768px) {
+  /* Código omitido */
+
+  .botao:last-child {
+    border-radius: 0;
+  }
+}
+=======
+.aba-conteudo-titulo-principal {
+  font-size: 28px;
+  text-align: center;
+}
+.aba-conteudo-titulo-secundario {
+  text-align: center;
+  color: var(--botao-ativo);
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 768px) {
+  /* Código omitido */
+
+  .botao:last-child {
+    border-radius: 0;
+  }
+}
+
+>>>>>>> a3ccc67fe9fbe78b62d7ffbe9bfa5a22718918c5
