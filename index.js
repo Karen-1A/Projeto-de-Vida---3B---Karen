@@ -3,9 +3,9 @@ const abasTextos = document.querySelectorAll(".aba-conteudo");
 
 const datasConclusao = [
     "31/12/2026", // Melhorar o inglês
-    "15/11/2026", // Passar na faculdade
-    "30/10/2026", // Pintar mais
-    "20/12/2026"  // Melhorar minhas habilidades culinárias
+    "20/02/2027", // Passar na faculdade
+    "31/12/2026", // Pintar mais
+    "31/12/2026"  // Melhorar minhas habilidades culinárias
 ];
 
 botoesObjetivos.forEach((botao, indice) => {
