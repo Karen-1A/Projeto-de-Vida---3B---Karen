@@ -1,56 +1,27 @@
-// 1. Seleção dos elementos do HTML
-const botoes = document.querySelectorAll(".botao");
-const textos = document.querySelectorAll(".aba-conteudo");
-const contadores = document.querySelectorAll(".contador");
+const botoesObjetivos = document.querySelectorAll(".botao-objetivo");
+const abasTextos = document.querySelectorAll(".aba-conteudo");
 
-// 2. Lógica de clique para alternar as abas (seu código original)
-for (let i = 0; i < botoes.length; i++) {
-  botoes[i].onclick = function () {
-    for (let j = 0; j < botoes.length; j++) {
-      botoes[j].classList.remove("ativo");
-      textos[j].classList.remove("ativo");
-    }
-    botoes[i].classList.add("ativo");
-    textos[i].classList.add("ativo");
-  };
-}
-
-// 3. Defina datas FUTURAS para os seus 4 objetivos
-const tempos = [
-    new Date("2026-12-31T23:59:59"), // Objetivo 1: Inglês
-    new Date("2026-11-30T23:59:59"), // Objetivo 2: Faculdade
-    new Date("2026-10-15T23:59:59"), // Objetivo 3: Pintar
-    new Date("2026-09-01T23:59:59")  // Objetivo 4: Culinária
+const datasConclusao = [
+    "31/12/2026", // Melhorar o inglês
+    "15/11/2026", // Passar na faculdade
+    "30/10/2026", // Pintar mais
+    "20/12/2026"  // Melhorar minhas habilidades culinárias
 ];
 
-// 4. Função para converter milissegundos em Dias, Horas, Minutos e Segundos
-function calculaTempo(tempoObjetivo) {
-    let tempoAtual = new Date();
-    let tempoFinal = tempoObjetivo - tempoAtual;
+botoesObjetivos.forEach((botao, indice) => {
+    botao.addEventListener("click", () => {
+        // Remove a classe ativo de absolutamente tudo
+        botoesObjetivos.forEach(b => b.classList.remove("ativo"));
+        abasTextos.forEach(aba => aba.classList.remove("ativo"));
 
-    if (tempoFinal < 0) {
-        return "Prazo encerrado!";
-    }
+        // Aplica a classe ativa estritamente no elemento clicado
+        botao.classList.add("ativo");
+        abasTextos[indice].classList.add("ativo");
 
-    let segundos = Math.floor(tempoFinal / 1000);
-    let minutos = Math.floor(segundos / 60);
-    let horas = Math.floor(minutos / 60);
-    let dias = Math.floor(horas / 24);
-
-    segundos %= 60;
-    minutos %= 60;
-    horas %= 24;
-
-    return `${dias} dias ${horas} horas ${minutos} min ${segundos} s`;
-}
-
-// 5. Atualiza todos os contadores na tela a cada 1 segundo
-function atualizaCronometro() {
-    for (let i = 0; i < contadores.length; i++) {
-        contadores[i].textContent = calculaTempo(tempos[i]);
-    }
-}
-
-// Executa a função imediatamente e define o intervalo de 1 segundo
-atualizaCronometro();
-setInterval(atualizaCronometro, 1000);
+        // Cospe a data correta no container
+        const contadorAtual = abasTextos[indice].querySelector(".contador");
+        if (contadorAtual) {
+            contadorAtual.innerHTML = `<p style="text-align:center; font-size:24px; color:var(--verde); margin-top:15px;">Data de conclusão: ${datasConclusao[indice]}</p>`;
+        }
+    });
+});
